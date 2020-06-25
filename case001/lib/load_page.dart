@@ -8,6 +8,7 @@ class LoadPage extends StatefulWidget {
 
 class _LoadPageState extends State<LoadPage>
     with SingleTickerProviderStateMixin {
+  /// 定义动画类
   AnimationController _animationController;
   Animation _animation;
 
@@ -29,13 +30,11 @@ class _LoadPageState extends State<LoadPage>
     _animation.addStatusListener(
       (status) {
         if (status == AnimationStatus.completed) {
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) {
-            return App();
-          }), (route) => route == null);
+          Navigator.pushNamedAndRemoveUntil(context, 'app', (route) => route == null);
         }
       },
     );
+
     /// 启动动画
     _animationController.forward();
   }
@@ -44,7 +43,10 @@ class _LoadPageState extends State<LoadPage>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _animation,
-      child: Image.network('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591597195374&di=7971e282e3e1ec18eddd56de7e7d077d&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fmobile%2F2017-12-06%2F5a278f55741d1.jpg', fit: BoxFit.cover,),
+      child: Image.network(
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591597195374&di=7971e282e3e1ec18eddd56de7e7d077d&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fmobile%2F2017-12-06%2F5a278f55741d1.jpg',
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

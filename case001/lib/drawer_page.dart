@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'test_page.dart';
+import 'home_page.dart';
 import 'package:flutter/cupertino.dart';
 
 class DrawerPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class DrawerPage extends StatelessWidget {
               style: TextStyle(color: Colors.black, fontSize: 24.0),
             ),
             accountEmail: Text(
-              '515042611@qq.com',
+              'https://hzz2020.github.io',
               style: TextStyle(
                 color: Colors.black87,
                 fontSize: 20.0,
@@ -36,7 +37,7 @@ class DrawerPage extends StatelessWidget {
             leading: Icon(CupertinoIcons.home),
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                return TestPage('首页');
+                return HomePage('首页');
               }));
             },
           ),
